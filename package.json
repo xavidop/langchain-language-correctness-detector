@@ -1,0 +1,45 @@
+{
+  "name": "langchain-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "type": "module",
+  "license": "Apache-2.0",
+  "private": false,
+  "engines": {
+    "node": ">= 14.0.0",
+    "npm": ">= 6.0.0"
+  },
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xavidop/langchain-example"
+  },
+  "bugs": "https://github.com/xavidop/langchain-example/issues",
+  "keywords": [],
+  "author": {
+    "name": "Xavier Portilla Edo",
+    "email": "xavi_tb@hotmail.com",
+    "url": "https://github.com/xavidop/langchain-example"
+  },
+  "contributors": [],
+  "dependencies": {
+    "@langchain/core": "^0.2.28",
+    "@langchain/google-vertexai": "^0.0.27",
+    "@langchain/openai": "^0.2.7",
+    "@types/node": "^22.5.0",
+    "dotenv": "^16.4.5",
+    "langchain": "^0.2.17",
+    "typescript": "^5.5.4",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "tsx": "^4.18.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./dist/app.js",
+    "dev": "tsx ./src/app.ts",
+    "dev:watch": "tsx --watch --inspect-brk ./src/app.ts"
+  }
+}
