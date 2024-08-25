@@ -1,10 +1,11 @@
   //Import the OpenAPI Large Language Model (you can import other models here eg. Cohere)
-  import { ChatOpenAI, ChatOpenAICallOptions } from "@langchain/openai";
+  import { ChatOpenAI } from "@langchain/openai";
   import { ChatVertexAI } from "@langchain/google-vertexai";
 
   import { ChatPromptTemplate } from "@langchain/core/prompts";
   import { z } from "zod";
   import * as dotenv from "dotenv";
+import { BaseChatModel } from "@langchain/core/language_models/chat_models";
 
   //Load environment variables (populate process.env from .env file)
   dotenv.config();
@@ -40,7 +41,7 @@
     ["user", "{text}"],
   ]);
 
-  let model: any;
+  let model: BaseChatModel;
   if (process.env.LLM_PROVIDER == "OPENAI") {
     model = new ChatOpenAI({ 
       model: "gpt-4",
