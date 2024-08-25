@@ -127,7 +127,7 @@ if (process.env.LLM_PROVIDER == "OPENAI") {
 }
 ```
 - **Prompt Template:** Creates a prompt template using the system message and user input.
-- **Model Selection:** Selects the language model based on the LLM_PROVIDER environment variable. It can either be OpenAI's GPT-4 or Google's Vertex AI.
+- **Model Selection:** Selects the language model based on the `LLM_PROVIDER` environment variable. It can either be OpenAI's GPT-4 or Google's Vertex AI.
 
 ### Main Function
 ```typescript
