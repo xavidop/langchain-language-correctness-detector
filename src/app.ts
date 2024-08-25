@@ -64,7 +64,7 @@ import { BaseChatModel } from "@langchain/core/language_models/chat_models";
     //Calls out to the model's (OpenAI's) endpoint passing the prompt. This call returns a string
     const chain = await promptTemplate.pipe(llmWihStructuredOutput);
 
-    const result = await chain.invoke({ language: "Spanish", text: "Yo estas enfadado consigo" });
+    const result = await chain.invoke({ language: "Spanish", text: "Yo soy enfadado" });
 
     console.log({ result });
   };

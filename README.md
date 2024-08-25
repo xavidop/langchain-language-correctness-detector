@@ -13,9 +13,12 @@ This project implements a simple Langchain language correctness detector that de
     - [Prompt Template and Model Selection](#prompt-template-and-model-selection)
     - [Main Function](#main-function)
   - [Prompts Used for Detecting Correctness](#prompts-used-for-detecting-correctness)
+  - [Examples](#examples)
+    - [OpenAI](#openai)
+    - [Gemini](#gemini)
   - [License](#license)
   - [Contributing](#contributing)
-  - [Contact](#contact)
+  - [Conclusion](#conclusion)
 
 
 ## Features
@@ -135,7 +138,7 @@ export const run = async () => {
 
   const chain = await promptTemplate.pipe(llmWihStructuredOutput);
 
-  const result = await chain.invoke({ language: "Spanish", text: "Yo estas enfadado consigo" });
+  const result = await chain.invoke({ language: "Spanish", text: "Yo soy enfadado" });
 
   console.log({ result });
 };
@@ -171,6 +174,58 @@ The following prompts are used to detect the correctness of the text:
     "Provide solutions for the errors found in the following text: {text}"
     ```
 
+## Examples
+
+This project can be used with different language models to detect language correctness. Here are some examples using OpenAI and Gemini models.
+
+### OpenAI
+
+With OpenAI's GPT-4 model, the system can detect grammatical errors, sentiment, and aggressiveness in the text.
+
+```json
+{ language: "Spanish", text: "Yo soy enfadado" }
+```
+
+```json
+{
+  result: {
+    sentiment: 'angry',
+    aggressiveness: 2,
+    correctness: 7,
+    errors: [
+      "The correct form of the verb 'estar' should be used instead of 'ser' when expressing emotions or states."
+    ],
+    solution: 'Yo estoy enfadado',
+    language: 'Spanish'
+  }
+}
+```
+
+### Gemini
+
+With Google's Vertex AI Gemini model, the output is quite similar:
+
+Input:
+```json
+{ language: "Spanish", text: "Yo soy enfadado" }
+```
+
+Output:
+```json
+{
+  result: {
+    sentiment: 'angry',
+    aggressiveness: 1,
+    correctness: 8,
+    errors: [
+      'The correct grammar is "estoy enfadado" because "ser" is used for permanent states and "estar" is used for temporary states. In this case, being angry is a temporary state.'
+    ],
+    solution: 'Estoy enfadado',
+    language: 'Spanish'
+  }
+}
+```
+
 ## License
 
 This project is licensed under the Apache License, Version 2.0. See the [LICENSE](LICENSE) file for more details.
@@ -179,8 +234,6 @@ This project is licensed under the Apache License, Version 2.0. See the [LICENSE
 
 Contributions are welcome! Please open an issue or submit a pull request for any changes.
 
-## Contact
+## Conclusion
 
-Author: Xavier Portilla Edo  
-Email: [xavi_tb@hotmail.com](mailto:xavi_tb@hotmail.com)  
-GitHub: [xavidop](https://github.com/xavidop)
+This project demonstrates how to use Langchain to detect language correctness using different language models. By combining the system template, classification schema, prompt template, and language model, you can create a powerful language processing system. OpenAI and Gemini models provide accurate results for detecting grammatical errors, sentiment, and aggressiveness in the text.
