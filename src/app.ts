@@ -1,10 +1,10 @@
-  //Import the OpenAPI Large Language Model (you can import other models here eg. Cohere)
-  import { ChatOpenAI } from "@langchain/openai";
-  import { ChatVertexAI } from "@langchain/google-vertexai";
+//Import the OpenAPI Large Language Model (you can import other models here eg. Cohere)
+import { ChatOpenAI } from "@langchain/openai";
+import { ChatVertexAI } from "@langchain/google-vertexai";
 
-  import { ChatPromptTemplate } from "@langchain/core/prompts";
-  import { z } from "zod";
-  import * as dotenv from "dotenv";
+import { ChatPromptTemplate } from "@langchain/core/prompts";
+import { z } from "zod";
+import * as dotenv from "dotenv";
 import { BaseChatModel } from "@langchain/core/language_models/chat_models";
 
   //Load environment variables (populate process.env from .env file)
